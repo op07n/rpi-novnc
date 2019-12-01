@@ -11,7 +11,7 @@ ENV HOME=/root \
 	DISPLAY_HEIGHT=768
 
 # Install git, supervisor, VNC, & X11 packages
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add \
 	bash \
 	fluxbox \
 	git \
@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
 	x11vnc \
 	xterm \
 	xvfb \
-    --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
 # Clone noVNC from github
