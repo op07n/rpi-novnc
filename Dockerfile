@@ -21,15 +21,15 @@ RUN apk update && apk add \
 	supervisor \
 	x11vnc \
 	xterm \
-	xvfb \
+	xvfb  && \
     rm -rf /var/lib/apt/lists/*
 
 # Clone noVNC from github
 RUN git clone https://github.com/kanaka/noVNC.git /root/noVNC \
 	&& git clone https://github.com/kanaka/websockify /root/noVNC/utils/websockify \
 	&& rm -rf /root/noVNC/.git \
-	&& rm -rf /root/noVNC/utils/websockify/.git \
-	&& apk del git
+	&& rm -rf /root/noVNC/utils/websockify/.git 
+
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
